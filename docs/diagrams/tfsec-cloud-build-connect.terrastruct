@@ -1,0 +1,23 @@
+GitHub: {
+  Repo: "Your repo" {
+    icon: https://icons.terrastruct.com/dev/github.svg
+    shape: image
+  }
+
+  CloudBuildApp: "Google Cloud Build App" {
+    icon: https://icons.terrastruct.com/gcp/Products%20and%20services/Developer%20Tools/Cloud%20Build.svg
+    shape: image
+  }
+  CloudBuildApp.tooltip: Installed from the GitHub Marketplace
+
+  Repo <- CloudBuildApp
+}
+
+GoogleCloud: "Google Cloud" {
+  CloudBuild: "Cloud Build" {
+    icon: https://icons.terrastruct.com/gcp/Products%20and%20services/Developer%20Tools/Cloud%20Build.svg
+    shape: image
+  }
+}
+
+GoogleCloud.CloudBuild -> GitHub.CloudBuildApp: Connect Cloud Build to \nGitHub repo

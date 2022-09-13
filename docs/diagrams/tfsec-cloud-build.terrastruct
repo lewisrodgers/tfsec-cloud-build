@@ -1,0 +1,35 @@
+Repository: "GitHub Respository" {
+  build branch
+}
+
+developer: {
+  icon: https://icons.terrastruct.com/aws/_General/User_light-bg.svg
+  shape: image
+}
+
+developer -> code
+code -> Repository.build branch: Pushes to
+
+Repository.build branch -> Google.Cloud Build Trigger: Kicks off
+
+Google: "Google Cloud" {
+  Cloud Build Trigger -> tfsec: Runs
+  tfsec -> tf files: Scans
+  tf files -> ok: No problems found
+  tf files -> problem: Problems found
+
+  ok: "build ok" {
+    # shape: image
+    icon: https://icons.terrastruct.com/essentials/059-success.svg
+  }
+
+  problem: "build fail" {
+    icon: https://icons.terrastruct.com/essentials/058-error.svg
+    # shape: image
+  }
+}
+
+code: "Code" {
+  icon: https://icons.terrastruct.com/tech/laptop.svg
+  shape: image
+}
